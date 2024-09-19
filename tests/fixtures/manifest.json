@@ -1,0 +1,32 @@
+{
+  "_Calendar-Ccd2vCpo.js": {
+    "file": "assets/Calendar-Ccd2vCpo.js",
+    "name": "Calendar"
+  },
+  "view/css/index.css": {
+    "file": "assets/tailwind-CfiLjM7Z.css",
+    "src": "view/css/index.css",
+    "isEntry": true
+  },
+  "view/entries/calendar.jsx": {
+    "file": "assets/calendar-CyZpG2yd.js",
+    "name": "calendar",
+    "src": "view/entries/calendar.jsx",
+    "isEntry": true,
+    "imports": [
+      "_Calendar-Ccd2vCpo.js"
+    ]
+  },
+  "view/entries/custom-calendar.jsx": {
+    "file": "assets/custom_calendar-Q13qeHZ9.js",
+    "name": "custom_calendar",
+    "src": "view/entries/custom-calendar.jsx",
+    "isEntry": true,
+    "imports": [
+      "_Calendar-Ccd2vCpo.js"
+    ],
+    "css": [
+      "assets/custom_calendar-BHxNh5Na.css"
+    ]
+  }
+}
