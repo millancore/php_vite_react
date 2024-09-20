@@ -38,8 +38,8 @@ we need to modify input entries to register each one in `vite.confi.js`
 ```
 ...
 input: {
-    calendar: 'view/entries/calendar.jsx', 
-    datatable: 'view/entries/datatable.jsx'
+    'view/entries/calendar.jsx', 
+    'view/entries/datatable.jsx'
     ...
 }
 ```
@@ -86,25 +86,19 @@ But this can be easily solved using PHP to have a single version to include the 
 with the help of the Vite manifest.
 
 
-> This is a proof of concept, you can see the helper class ViteComponentLoader
+> This is a proof of concept, you can see the helper class ViteManager
+> It automatically detects when the dev server is running and makes the file changes.
 ```php
 <!-- head styles -->
-<?php if($vite->isProd()): ?>
-    <link rel="stylesheet" href="<?php $vite->styles('calendar') ?>">
-<?php endif; ?>
+<link rel="stylesheet" href="<?php $vite->styles('calendar.jsx') ?>">
 
 .....
 
 <!-- body scripts -->
-<?php 
- # Only works if Dev server is running  
- echo $vite->addReactRefresh();
-?>
-
-<?php if($vite->isProd()): ?>
-    <script type="module" src="<?php $vite->component('calendar') ?>"></script>
-<?php endif; ?>
+<?= $vite->addReactRefresh();?>
+<script type="module" src="<?php $vite->get('calendar.jsx') ?>"></script>
 ```
+
 
 
 

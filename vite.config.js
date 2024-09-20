@@ -10,11 +10,11 @@ export default defineConfig({
         emptyOutDir: true,
         manifest: true,
         rollupOptions: {
-            input: {
-                tailwind: 'view/css/index.css',
-                calendar: 'view/entries/calendar.jsx',
-                custom_calendar: 'view/entries/custom-calendar.jsx',
-            }
+            input: [
+                'view/css/index.css',
+                'view/entries/calendar.jsx',
+                'view/entries/custom-calendar.jsx',
+            ]
         }
     }
 })

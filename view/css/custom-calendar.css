@@ -1,3 +1,7 @@
 .custom-day {
-    border: 1px solid #cdec;
+    border: 1px solid #a75c5c;
+}
+
+.custom-day:hover {
+    background-color: #5d81c8;
 }

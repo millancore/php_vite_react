@@ -27,11 +27,18 @@ class ManifestTest extends TestCase
         $this->assertInstanceOf(Manifest::class, $this->manifest);
     }
 
-    public function test_get_asset_by_name() : void
+    public function test_has_asset_by_file() : void
     {
-        $asset = $this->manifest->getAssetByName('calendar');
+        $this->assertTrue($this->manifest->hasAssetByFile('view/css/index.css'));
+        $this->assertFalse($this->manifest->hasAssetByFile('not-exists'));
+    }
+
+    public function test_get_asset_by_file() : void
+    {
+        $asset = $this->manifest->getAssetByFile('view/entries/calendar.jsx');
 
         $this->assertInstanceOf(Asset::class, $asset);
         $this->assertEquals('assets/calendar-CyZpG2yd.js', $asset->file);
     }
+
 }

@@ -4,11 +4,8 @@ namespace App\Vite;
 
 class Manifest
 {
-    /** @var array<Asset> $index */
+    /** @var array<string, Asset> $index */
     private array $index = [];
-
-    /** @var array<Asset> $assets */
-    private array $assets = [];
 
     /**
      * @param array<mixed> $rawManifest
@@ -27,11 +24,7 @@ class Manifest
 
     public function addAsset(Asset $asset): Manifest
     {
-        $this->assets[] = $asset;
-
-        if ($asset->name) {
-            $this->index[$asset->name] = $asset;
-        }
+        $this->index[$asset->origin] = $asset;
 
         return $this;
     }
@@ -41,16 +34,21 @@ class Manifest
      */
     public function getAssets(): array
     {
-        return $this->assets;
+        return array_values($this->index);
     }
 
-    public function getAssetByName(string $name): ?Asset
+    public function getAssetByFile(string $file): ?Asset
     {
-        if(!isset($this->index[$name])) {
+        if(!isset($this->index[$file])) {
             return null;
         }
 
-        return $this->index[$name];
+        return $this->index[$file];
+    }
+
+    public function hasAssetByFile(string $string): bool
+    {
+        return isset($this->index[$string]);
     }
 
 }
